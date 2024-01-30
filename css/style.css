@@ -180,3 +180,46 @@ input.search{
     text-shadow: 0 0 15px rgba(0,0,0,0.2), 
                  0 0 30px rgba(216, 38, 39, 0.2);
 }
+.line1{
+   
+    display: inline-block;
+    margin-top: -6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444;
+    background: #444;
+    width: 18px;
+}
+.line2{
+   
+    display: inline-block;
+    margin-top: -6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444;
+    background: #444;
+    width: 18px;
+    top:50%;
+}
+.line3{
+   
+    display: inline-block;
+    margin-top: -6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #444;
+    background: #444;
+    width: 18px;
+}
+.linebox{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    cursor:pointer;
+    margin-top:3px;
+}
+.global{
+    justify-content: center;
+}
