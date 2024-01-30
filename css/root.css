@@ -1,0 +1,10 @@
+:root{
+    --primary-color: #1d1f1e;  /*-- 하이푼 2개를 찍어서(변수처럼 사용하는것!!) 컬러값을 설정할 수 있다.*/
+    --dark-color:#504e4e;
+    --gray-dark-color:#918c8c;
+    --gray-color:#dcdedc;
+    --pink-color: #FDEFEE;
+    --red-color:#D82627;
+    --white-color:#ffffff;
+    
+}
