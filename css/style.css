@@ -180,7 +180,6 @@ input.search{
     text-shadow: 0 0 15px rgba(0,0,0,0.2), 
                  0 0 30px rgba(216, 38, 39, 0.2);
 }
-<<<<<<< HEAD
 .line1{
    
     display: inline-block;
@@ -223,7 +222,7 @@ input.search{
 }
 .global{
     justify-content: center;
-=======
+
 /****************GLOBAL NAV *****************/
 nav.global{
     box-shadow:0 10px 10px 0 rgba(0,0,0,0.05);
@@ -270,5 +269,5 @@ ul.global-nav{
     width: 23%;
     text-transform: uppercase;
     line-height: 50px;
->>>>>>> main
+}
 }
