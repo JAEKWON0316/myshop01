@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+    
+    <script>
+        const txt = '{"name": "John", "age": 30, "city": "New York"}'; //그냥 문자열
+        const txt2 = {name: "John", age: 30, city: "New York"};
+        console.log(typeof txt);
+        document.getElementById("demo").innerHTML = txt; // 문자열타입
+        const obj = JSON.parse(txt);
+        document.getElementById("demo2").innerHTML = typeof obj; //오브젝트 타입
+        document.getElementById("demo3").innerHTML = obj.name + ", " + obj.age + ", " + obj.city;
+        const obj2 = JSON.stringify(txt2);
+        document.getElementById("demo4").innerHTML = txt2;
+        document.getElementById("demo5").innerHTML = typeof txt2; //오브젝트 타입
+        document.getElementById("demo6").innerHTML = obj2; //문자열 타입
+
+    </script>
+</body>
+</html>

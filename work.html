@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            /*
+            $.get() => 파라미터 창을 통해 데이터를 보내거나 가져옴.
+                        -보안에 취약
+                        -크기가 한계가 있음
+                        -다른 사이트(다른서버)와 통신
+
+            $.post() => body를 통해 들어오기 때문에
+                        -보안에 좋음
+                        -크기에 한계가 없음
+                        -다른 사이트(다른서버)와 통신은 불가능
+
+            $.ajax() => 내부 데이터 옵션을 통해 get, post를 설정할 수 있음.
+              type: GET 또는 POST
+              url: ajax로 요청할 때 대상 url
+              async: 동기, 비동기
+              dataType: 받아돌 데이터의 자료형 지정
+              data: 요청을 보낼 데이터 지정
+              success: 요청성공시 이벤트발생
+              error(xhr, status, error): 요청실패시 실행할 이벤트
+              complete: 요청완료시
+            */
+           $.ajax({
+                url: "./data/db.json", //데이터 받아올 경로 지정
+                success: function(rs){ //rs라는 매개변수로 데이터를 받아옴
+                    let li = ""; //변수 li(값을 받아 줄 변수)에 아무 값을 저장하지 않아줌
+                        for(let i = 0; i < rs.category.length; i++){ //0~4전까지 총 4번실행
+                            li += "<li>"+rs.category[i]+"</li>"; //변수 li에 <li>내용</li>
+                        }    
+                        $("#demo").html("<ol>"+li+"</ol>") //저장된 변수4개 li이에 ol태그를 붙혀줘서 demo라는 id에 html 출력
+                    }
+           })
+        });
+    </script>  
+</body>
+</html>
