@@ -16,4 +16,23 @@ $(function(){
     // $('.pr-category>li').hover(function(){
     //     $(this).find('.sub-cate').fadeToggle();
     // });
+
+    $('.listview').click(function(e){ //e는 event의 약자 변수
+        e.preventDefault(); //listview의 기능 중지
+        const view = $(this).data("view"); //html에 만들어준 data-view
+        $("#pdlist>div").removeClass();
+        $(".listview rect").removeClass('list-act-color').addClass('list-color');
+        if(view == 3){
+            $(this).find('rect').removeClass('list-color').addClass('list-act-color');
+            $("#pdlist>div").addClass("col-md-4 mb-5");
+        }
+        else if(view == 4){
+            $(this).find('rect').removeClass('list-color').addClass('list-act-color');
+            $("#pdlist>div").addClass("col-md-3 mb-5");
+        }
+        else if(view == 5){
+            $(this).find('rect').removeClass('list-color').addClass('list-act-color');
+            $("#pdlist>div").addClass("col-md-55 mb-5");
+        }
+    });
 });
