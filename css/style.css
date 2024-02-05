@@ -12,7 +12,7 @@ a:hover{
 }
 .container-max{
     width:1580px;
-    max-width:1440px;
+    max-width:100%;
     padding-left:80px;
     padding-right:80px;
     margin-left:auto;
@@ -23,6 +23,26 @@ a:hover{
     max-width: 1440px;
     }
 }
+/**************** HEADER **************/
+header>.container-max>.row{
+    flex-flow:column nowrap;
+}
+header.fixed>.container-max>.row{
+    flex-flow:row nowrap;
+}
+header.fixed .brand{
+    order:1;
+    font-size:25px;
+    margin-top:5px;
+    margin-right:30px;
+    width:300px;
+}
+header.fixed nav.top{
+    order:2;
+    width: calc(100% - 300px);
+
+}
+
 
 /**************** TOP NAVIGATION **************/
 .top ul.nav{
@@ -176,6 +196,7 @@ input.search{
     font-family: "Turret Road", sans-serif;
     text-shadow: 0 0 15px rgba(0,0,0,0.5), 
                  0 0 30px rgba(255, 38, 39, 0.5);
+    transition: all 300ms ease-in-out;
 }
 /****************GLOBAL NAV *****************/
 nav.global{
@@ -198,7 +219,7 @@ nav.global{
 }
 .category-subnav{
     position:absolute;
-    width: 1310px;
+    width: 1450px;
     height:600px;
     z-index:101;
     background:#fff;
@@ -209,7 +230,6 @@ nav.global{
     justify-content: space-between;
     align-items: flex-start;
     display:none;
-    left:-0.5px;
 }
 .category-subnav-view{
     display:flex;
@@ -428,7 +448,58 @@ span.or{
     background-color:var(--dark-color);
     color:var(--white-color);
 }
-
+.service h4{
+    font-size:14px;
+    font-weight:700;
+}
+.service h4 span.tel{
+    font-size:20px;
+    margin-left:15px;
+    color:#f5a9a6;
+}
+.service h4 a.kakao{
+    font-weight:300;
+    font-size:20px;
+    margin-left:15px;
+    color:#ffe812;
+    text-decoration: none;
+}
+.service h4 a.kakao:hover{
+    background:transparent;
+    color:#000;
+}
+p{
+    font-size:13px;
+    font-weight:300;
+}
+span.bank{
+    margin-right:20px;
+    padding-bottom:10px;
+    font-size:13px;
+    font-weight:300;
+    white-space:nowrap;
+}
+.bank-box{  /*span은 마진값이 안먹어서 div bank-box로 싸줘서 준다.*/
+    margin-bottom:20px;  
+}
+.linebox{
+    border-left:1px solid rgba(255,255,255,0.3);
+    padding-left:50px;
+    height:100%;
+}
+.df-escrow-inicis{
+    cursor:pointer;
+    background:var(--gray-color);
+    padding:20px;
+    border-radius:10px;
+    display:inline-block;
+    line-height: 1;
+}
+.df-escrow-inicis p{
+    padding:0;
+    margin:0;
+    color:black;
+}
 /******************** FOOTER *******************/
 footer{
     padding-top:15px;
@@ -444,4 +515,25 @@ footer{
         padding-left:1rem;
         padding-right:1rem;
     }
+}
+
+/******************* REMOTE ***************/
+.remotecontrol{
+    position:fixed; /*position을 fixed(고정)시켜서 스크롤 내리든 어느때는 위치값을 고정시킨다*/
+    width:50px;
+    border:1px solid var(--gray-dark-color);
+    z-index:9999; /* 계속보이게 만듦*/
+    bottom:30px;
+    right:30px;
+    font-size:2em;
+    text-align: center;
+    line-height: 1.4;
+    background-color:rgba(255,255,255,0.8);
+}
+.remotecontrol .news,
+.remotecontrol .hots{
+    font-size:0.8em;
+    display:block;
+    font-style:  italic;
+    margin-right:3px;
 }
