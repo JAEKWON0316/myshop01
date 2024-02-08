@@ -212,6 +212,9 @@ input.search{
 nav.global{
     box-shadow:0 10px 10px 0 rgba(0,0,0,0.05);
 }
+.category-parent{
+    position:relative;
+}
 .category{
     line-height:50px;
     display:block;
@@ -219,14 +222,15 @@ nav.global{
     width:50px;
     height:50px;
     text-align:center;
-    position:relative;
 }
-.category:hover{
-    background-color:var(--dark-color);
-}
-.category:hover>a{
-    color:var(--white-color);
-}
+ .category:hover,
+ .category-act{
+    background-color: var(--dark-color);
+ }
+ .category:hover>a,
+ .category-act>a{
+    color: var(--white-color);
+ }
 .category-subnav{
     position:absolute;
     width: 1450px;
@@ -329,7 +333,7 @@ ul.global-nav{
 @media (max-width:768px){ /*최대 부터 최소 768까지 25px*/
     .container-max{
         padding-left:10px;
-        padding-right:10;
+        padding-right:10px;
     }
     .brand{
         font-size:25px;
@@ -353,6 +357,18 @@ ul.global-nav{
     }
     .category-subnav-view{ /*flex를 column(세로)로 만들어서 세로로 나오게함*/
         flex-direction: column;
+        width:100%;
+
+    }
+    .category-subnav-view li{
+        width:100%;
+    }
+    .global-nav-view{
+        width:100%;
+    }
+    .category-subnav-view li a,
+    .global-nav-view a{
+        padding: 8px 10px;
     }
 }
 
@@ -363,6 +379,9 @@ ul.global-nav{
 .mySlick img{
     margin-left:auto;
     margin-right:auto;
+    object-fit:cover;
+    width:100%;
+    height:500px;
 }
 .slick-dots{
     bottom:10px;
@@ -376,17 +395,17 @@ ul.global-nav{
 .slick-dots li button::before{
     content:"";
     width:20px;
-    height:4px;
+    height:3px;
     background: var(--dark-color);
     opacity: 0.5;
-    transition: all 300m;
+    transition: all 300ms;
 }
 .slick-dots li.slick-active button::before{
     width:40px;
     opacity:0.9;
 }
 .slick-next{
-    right:calc(50% - 580px);
+    right:calc(50% - 590px);
     z-index:100;
 }
 .mySlick:hover .slick-next::before,
@@ -417,7 +436,6 @@ ul.global-nav{
 .card-body h5{
     font-size:16px;
     font-weight:700;
-    text-transform: uppercase;
 }
 .card-body p{
     font-size:14px;
@@ -819,5 +837,5 @@ input[type=number].quantity{
    margin-right: 15px;
 }
 .btn-line.btn-right{
-    margin-left: 7px;
+    margin-left: 5px;
  }

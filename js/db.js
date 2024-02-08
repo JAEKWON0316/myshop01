@@ -31,7 +31,7 @@ $(function(){
          for(let i = 0; i < img.length; i++){
             imgs += `<div class="text-center"><img src="images/${img[i]}" alt="${img[i]}"></div>`;
          }
-         $('.mySlick').prepend(imgs).slick({//밑에와 똑같다!(단, 안에 내용이 없을 떄만!)
+         $('.mySlick').prepend(imgs).not('.slick-initialized').slick({//밑에와 똑같다!(단, 안에 내용이 없을 떄만!)
             // $('.mySlick').html(imgs);
             dots: true,
             infinite: true,
@@ -39,7 +39,22 @@ $(function(){
             fade: true,
             cssEase: 'linear',
             autoplay: true,
-            autoplaySpeed: 5000 
+            autoplaySpeed: 5000,
+            responsive: [
+               {
+                 breakpoint: 768,
+                 settings: {
+                   slidesToShow: 1,
+                   slidesToScroll: 1,
+                   infinite: true,
+                   dots: true,
+                   autoplay: true,
+                   autoplaySpeed: 5000,
+                   speed: 500
+            
+                 }
+               }
+            ] 
          });
        });
 

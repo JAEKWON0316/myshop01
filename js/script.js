@@ -31,9 +31,11 @@ $(function(){
     $(".category").click(function(){
         if($(this).find('.category-subnav').css('display') == 'none'){
             $(this).find('.category-subnav').css('display', 'flex');
+            $(this).addClass('category-act');
         }
         else{
             $(this).find('.category-subnav').css('display', 'none');
+            $(this).removeClass('category-act');
         }
 });
     // $('.pr-category>li').hover(function(){
@@ -101,5 +103,6 @@ $(function(){
         }, 500);
     });
     
+
    
 });  //jqrery
