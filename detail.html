@@ -52,7 +52,7 @@
                     <li><a href="#">login</a></li>
                     <li><a href="#">join us</a>
                        <div class="msgbox">
-                           +10,000 P
+                           +10,000 
                        </div>
                     </li>
                     <li><a href="#">cart <span>0</span></a></li>
@@ -160,6 +160,7 @@
                 <!-- 상품 정보 -->
                 <div class="col-md-6 pl-md-5 pr-list">
                     <form name="detail-form" method="post">
+                        <input type="hidden" name="title" id="title" value="지그재그 니트 후드 덕다운 롱 패딩" />
                         <input type="hidden" name="prcode" id="prcode" value="P00103EEA" />
                         <input type="hidden" name="prpice" id="prprice" value="140000" />
                         <input type="hidden" name="reserves" id="reservess" value="0" />
@@ -180,23 +181,23 @@
                         <li><label class="title-label">적립금</label> 700원 [200,000원 이상 최대 <span>5천원</span> 적립]</li>
                         <li><label class="title-label">배송비</label> 5,000원</li>
                         <li class="line colors"><label class="title-label">컬러</label>
-                                <input type="radio" name="color" checked id="black" value="검정">
+                                <input type="radio" name="color" data-color="0" checked id="black" data-colorname="검정" value="black">
                                 <label for="black" class="black"></label>
-                                <input type="radio" name="color" id="pink" value="핑크">
+                                <input type="radio" name="color" id="pink" data-color="1000" data-colorname="핑크" value="pink">
                                 <label for="pink" class="pink"></label>
-                                <input type="radio" name="color" id="blue" value="파랑">
+                                <input type="radio" name="color" id="blue" data-color="0" data-colorname="파랑" value="blue">
                                 <label for="blue" class="blue"></label>
-                                <input type="radio" name="color" id="red" value="빨강">
+                                <input type="radio" name="color" id="red" data-color="0" data-colorname="빨강" value="red">
                                 <label for="red" class="red"></label>
                                 <p class="selected">검정색</p>
                         </li>
                         <li class="line"><label class="title-label">사이즈</label>
                             <select class="size"  name="size"> <!--name이 있어야 value값을 받을 수 있다 name,value는 한쌍!!!!!!-->
-                                <option value="m" selected>미디움</option>
-                                <option value="xs">엑스스몰</option>
-                                <option value="s">스몰</option>
-                                <option value="l">라지</option>
-                                <option value="xl">엑스라지</option>
+                                <option value="m" selected data-size="0">미디움</option>
+                                <option value="xs" data-size="5000">엑스스몰</option>
+                                <option value="s" data-size="0">스몰</option>
+                                <option value="l" data-size="0">라지</option>
+                                <option value="xl" data-size="5000">엑스라지</option>
                             </select>
                         </li>
                         <!--
@@ -206,30 +207,7 @@
                         -->
                     </ul>
                     <div class="t-price">
-                        <ul class="add-opt">
-                            <li class="total-text">
-                                
-                            </li>
-                            <li class="addbox d-flex align-items-center">
-                                <label class="title-label">수량</label>
-                                <div class="input-group mb-3 ml-4">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-line" id="qdown" type="button">
-                                        <i class="fa-solid fa-chevron-down"></i>
-                                    </button>
-                                </div>
-                                <input type="number" class="quantity" id="quantity" name="quantity" value="1" readonly> <!--readonly => 글씨로 수정불가능-->
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-line" id="qup" type="button">
-                                        <i class="fa-solid fa-chevron-up"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            </li>
-                            <li class="tomoney">
-                                
-                            </li>
-                        </ul>
+                       <div class="addquantity"></div>
                         <div class="totalmoney">
                             총 상품금액(수량) : <strong>123,000</strong><span>(1개)</span>
                         </div>
