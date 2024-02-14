@@ -176,12 +176,12 @@
                     </p>
                     <ul class="ul-pr-list">
                         <li><label class="title-label">상품코드</label> P00103EEA</li>
-                        <li><label class="title-label">판매가</label> 150,000원</li>
+                        <li><label class="title-label">판매가</label><del>150,000원</del></li>
                         <li><label class="title-label">할인판매가</label> 140,000원</li>
                         <li><label class="title-label">적립금</label> 700원 [200,000원 이상 최대 <span>5천원</span> 적립]</li>
                         <li><label class="title-label">배송비</label> 5,000원</li>
                         <li class="line colors"><label class="title-label">컬러</label>
-                                <input type="radio" name="color" data-color="0" checked id="black" data-colorname="검정" value="black">
+                                <input type="radio" name="color" data-color="0" id="black" data-colorname="검정" value="black">
                                 <label for="black" class="black"></label>
                                 <input type="radio" name="color" id="pink" data-color="1000" data-colorname="핑크" value="pink">
                                 <label for="pink" class="pink"></label>
@@ -189,11 +189,12 @@
                                 <label for="blue" class="blue"></label>
                                 <input type="radio" name="color" id="red" data-color="0" data-colorname="빨강" value="red">
                                 <label for="red" class="red"></label>
-                                <p class="selected">검정색</p>
+                                <p class="selected">색상을 선택하세요.</p>
                         </li>
                         <li class="line"><label class="title-label">사이즈</label>
-                            <select class="size"  name="size"> <!--name이 있어야 value값을 받을 수 있다 name,value는 한쌍!!!!!!-->
-                                <option value="m" selected data-size="0">미디움</option>
+                            <select class="size"  name="size" disabled> <!--name이 있어야 value값을 받을 수 있다 name,value는 한쌍!!!!!!-->
+                                <option value="">사이즈 선택</option>             <!-- disalbed == 기능사용 정지 (나중에 js로 이벤트를 줘서 기능을 살릴것이기 때문에)-->
+                                <option value="m" data-size="0">미디움</option>
                                 <option value="xs" data-size="5000">엑스스몰</option>
                                 <option value="s" data-size="0">스몰</option>
                                 <option value="l" data-size="0">라지</option>
@@ -209,11 +210,11 @@
                     <div class="t-price">
                        <div class="addquantity"></div>
                         <div class="totalmoney">
-                            총 상품금액(수량) : <strong>123,000</strong><span>(1개)</span>
+                            <!--총 상품금액(수량) : <strong>123,000원</strong><span>(1개)</span>-->
                         </div>
                         <div class="btnbox">
-                            <button type="button" class="btn btn-detail"><i class="ri-hand-heart-fill"></i>주문하기</button>
-                            <button type="button" class="btn btn-line btn-left"><i class="ri-shopping-bag-3-line"></i>ADD TO CART</button>
+                            <button type="button" class="btn btn-detail" disabled><i class="ri-hand-heart-fill"></i>주문하기</button>
+                            <button type="button" class="btn btn-line btn-left" disabled><i class="ri-shopping-bag-3-line"></i>ADD TO CART</button>
                             <button type="button" class="btn btn-line btn-right"><i class="ri-heart-fill"></i>WISH LIST</button>
                         </div>
                     </div>
