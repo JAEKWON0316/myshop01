@@ -853,3 +853,49 @@ input[type=number].quantity{
 .remove-order{
     cursor: pointer;
 }
+
+/******** detail 상품 상세정보 ***********/
+.nav-pills{
+    margin-bottom:30px;
+    font-size:16px;
+    color:var(--gray-dark-color);
+    justify-content: center;
+}
+.nav-pills li{
+    padding:5px 30px;
+    position:relative;
+    transition: all 300ms;
+}
+.nav-pills li.active,
+.nav-pills li:hover{
+    background:#eee;
+    border-radius: 5px;
+}
+.nav-pills li:not(:last-child)::after{
+    content: "";
+    display:block;
+    width:1px;
+    height:8px;
+    background:#ddd;
+    position:absolute;
+    right:0;
+    top:13px;
+}
+.tab-content{
+    border:1px solid #ddd;
+    height:800px;
+}
+.tab-content h3,
+.tab-content p{
+    text-align: center;
+}
+.tab-content img{
+    width:400px;
+    height:400px;
+    display: block;
+    margin: auto;
+}
+#view>p{
+    font-size:14px;
+    margin:0;
+}

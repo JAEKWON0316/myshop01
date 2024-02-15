@@ -17,7 +17,7 @@ $(function(){
     const prtitle = $("#title").val();
     let totalmoney = prprice;
     let tmoney = prprice;
-    let txt, totalTextLength, opt1, opt11, colortxt, color, opt2, opt21, size, sizetxt, optionText; //외부에서도 선언해줘야지 다른 함수에서도 사용할 수 있으니까!!(함수내에 변수를 설정하면 그 함수내(스코프)안에서 밖에 못쓴다!!)
+    let totalTextLength, opt1, opt11, colortxt, color, opt2, opt21, size, sizetxt, optionText; //외부에서도 선언해줘야지 다른 함수에서도 사용할 수 있으니까!!(함수내에 변수를 설정하면 그 함수내(스코프)안에서 밖에 못쓴다!!)
    
     $('input[name="color"]').change(function(){
         //alert(this.value);
@@ -47,7 +47,7 @@ $(function(){
                                    </div>
                                   <input type="number" 
                                         class="quantity"
-                                        name="quantity" 
+                                        name="quantity[]" 
                                         value="1"
                                         readonly>
                                   <div class="input-group-append">
@@ -56,9 +56,11 @@ $(function(){
                                     </button>
                                   </div> 
                              </div>
-                             <input type="hidden" class="toptmoney">
+                             
                          </li>
                     </ul>
+                    <input type="hidden" name="subtitle[]" class="subtitle">
+                    <input type="hidden" name="toptmoney[]" class="toptmoney">
                     <div class="tomoney col text-right"></div>
                     <i class="fa-solid fa-close remove-order"></i>
                     </li>
@@ -94,14 +96,15 @@ $(function(){
         for(let i = 0; i < $('.quantity').length; i++){
             $('.quantity').eq(i).val(quantityArray[i]);
         }
+        $('.subtitle').eq(totalTextLength).val(`${colortxt}-${sizetxt}`);
         $('.toptmoney').eq(totalTextLength).val(tmoney);
         $('.total-text').eq(totalTextLength).html(optionText); //eq == 순서를 나타냄(totalTextLength로) 0,1,2,3,...
         $('.quantity').eq(totalTextLength).val(1); //초기값을 1로 설정
         $('.tomoney').eq(totalTextLength).html(tmoney.toLocaleString()+"원");
-        txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+"개)";
-        $('.totalmoney').html(txt); 
-        console.log(txt);
+        $('#submit, #cart').attr('disabled', false);
+        totalMoney(delivery);
        }
+
         // textArray = $('.total-text').html(optionText); 
         // console.log(textArray[i]);
         
@@ -131,8 +134,7 @@ $(function(){
         //let ind = $('.qup').index(this); //qup의 인덱스 순서값을 ind에 저장
         //$('.tomoney').eq(ind).html(tmoney + "원");
         $('.tomoney').eq(totalTextLength).html(ttmoney.toLocaleString()+"원");
-        txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantity+"개)";
-        $('.totalmoney').html(txt);        
+        totalMoney(delivery);      
         //$('.totalmoney>strong').text(totalmoney.toLocaleString()+"원");
     });
     //$("#qdown").click(function(){
@@ -152,24 +154,45 @@ $(function(){
         tmoney = ttmoney.toLocaleString();
         $(this).parents('.add-opt').find('.tomoney').html(ttmoney + "원");
         $('.tomoney').eq(totalTextLength).html(ttmoney.toLocaleString()+"원");
-        txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantity+"개)";
-        $('.totalmoney').html(txt);  
+        totalMoney(delivery);
         //$('.totalmoney>strong').text(totalmoney.toLocaleString()+"원");
         
     });
     
     $(document).on('click', '.remove-order', function(){
         $(this).parents('.add-opt').remove(); //클릭한것의 부모들중 add-opt클래스를 찾아서 삭제해라.
+        if($('.addquantity').children().hasClass('add-opt')){
+        totalMoney(delivery);
+    }
+    else{
+        $(this).find("option:first").prop("selected", true); //prop: select 박스에 true,false를 주는 명령어
+        $('#submit, #cart').attr('disabled', true);
+        $(".totalmoney").html("");
+    }
+    });
+
+    //본문 상세보기 스크립트!!!
+    $('.nav-pills li').click(function(){
+        $('.nav-pills>li').removeClass('active');
+        $(this).addClass('active');
     });
 
 }); //jquery
 
-function totalMoney(){
-    let tm = 0;
-    $("input[name='toptmoney[]']").each(function(index){
-        let moneyVal = parseInt($(this).val());
-        let qt = parseInt($(".quantity").val());
+function totalMoney(delivery){ //jquery 밖에 있는 함수이기 때문에 매개변수로 delivery를 받아야한다.
+    let tm = 0; 
+    let qts = 0;
+    $("input[name='toptmoney[]']").each(function(index){ //name에다 []를 해주면 배열로 들어간다!!
+        let moneyVal = parseInt($(this).val()); //가격 가져오기
+      
+        let qt = parseInt($(".quantity").eq(index).val()); //수랑 가져오기
         tm += moneyVal*qt;
-        console.log(tm);
+        qts += qt;
+        //배송정책
+        if(tm >= 200000){
+            delivery = 0;
+        }
+        let txt = "총 상품금액(수량) : <strong>" + tm.toLocaleString() + "원</strong>+(배송비 :" + delivery.toLocaleString() + "원)" + " 상품수량(" + qts + "개)" ;
+        $('.totalmoney').html(txt); 
     });
 }
