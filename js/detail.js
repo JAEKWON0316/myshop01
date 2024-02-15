@@ -173,3 +173,6 @@ function totalMoney(){
         console.log(tm);
     });
 }
+function zzzdz(){
+    
+}
