@@ -47,7 +47,7 @@ $(function(){
                                    </div>
                                   <input type="number" 
                                         class="quantity"
-                                        name="quantity" 
+                                        name="quantity[]"   
                                         value="1"
                                         readonly>
                                   <div class="input-group-append">
@@ -56,9 +56,10 @@ $(function(){
                                     </button>
                                   </div> 
                              </div>
-                             <input type="hidden" class="toptmoney">
                          </li>
                     </ul>
+                    <input type="hidden" name="subtitle[]" class"subtitle">
+                    <input type="hidden" name="toptmoney[]" class="toptmoney">
                     <div class="tomoney col text-right"></div>
                     <i class="fa-solid fa-close remove-order"></i>
                     </li>
@@ -94,6 +95,7 @@ $(function(){
         for(let i = 0; i < $('.quantity').length; i++){
             $('.quantity').eq(i).val(quantityArray[i]);
         }
+        $('.subtitle').eq(totalTextLength).val(`${colortxt}-${sizetxt}`);
         $('.toptmoney').eq(totalTextLength).val(tmoney);
         $('.total-text').eq(totalTextLength).html(optionText); //eq == 순서를 나타냄(totalTextLength로) 0,1,2,3,...
         $('.quantity').eq(totalTextLength).val(1); //초기값을 1로 설정
@@ -172,7 +174,4 @@ function totalMoney(){
         tm += moneyVal*qt;
         console.log(tm);
     });
-}
-function zzzdz(){
-    
 }
