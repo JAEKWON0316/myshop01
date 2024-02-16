@@ -375,6 +375,7 @@ ul.global-nav{
 /******************** HREO *****************/
 .hero{
     overflow:hidden;
+    position:relative;
 }
 .mySlick img{
     margin-left:auto;
@@ -404,25 +405,45 @@ ul.global-nav{
     width:40px;
     opacity:0.9;
 }
-.slick-next{
+.hero-next{
     right:calc(50% - 590px);
     z-index:100;
 }
-.mySlick:hover .slick-next::before,
-.mySlick:hover .slick-prev::before{
-    opacity: 0.5;
+.hero:hover .hero-next,
+.hero:hover .hero-prev{
+    color:rgba(255,255,255,0.7);
 }
-.slick-next:hover,
-.slick-prev:hover{
+.hero-next:hover,
+.hero-prev:hover{
     opacity:0.5;
 }
-.slick-next::before,
-.slick-prev::before{
+.hero-next::before,
+.hero-prev::before{
     font-size:50px;
     opacity: 0;
     transition: all 0.3s;
 }
+.hero-prev,
+.hero-next{
+    border:none;
+    outline:none;
+    background:transparent;
+    position:absolute;
+    font-size:70px;
+    top:200px;
+    color:rgba(255,255,255,0);
+    transition:all 400ms;
+    text-align:center;
+}
 .slick-prev{
+    left:20px;
+    z-index:100;
+}
+.slick-next{
+    right:20px;
+    z-index:100;
+}
+.hero-prev{
     left:calc(50% - 590px);
     z-index:100;
 }
@@ -881,7 +902,7 @@ input[type=number].quantity{
     right:0;
     top:13px;
 }
-.tab-content{
+/*.tab-content{
     border:1px solid #ddd;
     height:800px;
 }
@@ -898,4 +919,89 @@ input[type=number].quantity{
 #view>p{
     font-size:14px;
     margin:0;
+}
+*/
+/******************* 구매후기 *********************/
+.star{
+    margin-top:20px;
+    margin-bottom:40px;
+}
+.star i{
+    font-size:30px;
+    margin: 5px;
+    color:#ffb500;
+}
+.score{
+    font-size:50px;
+}
+.ratio-box{
+    display:flex;
+    margin-top:60px;
+    margin-left:60px;
+    margin-right:60px;
+}
+.ratio-box>div{
+    width:20%;
+}
+.box-line{
+    margin-left:auto;
+    margin-right:auto;
+    width:10px;
+    height:80px;
+    background-color:var(--gray-color);
+    border-radius: 5px;
+    position:relative;
+}
+.box-line::after{
+    position:absolute;
+    width:30px;
+    font-size:14px;
+    top:-30px;
+    left:-8px;
+}
+.ratio-box>div:first-of-type .box-line::after{
+    content:"5점";
+}
+.ratio-box>div:nth-of-type(2) .box-line::after{
+    content:"4점";
+}
+.ratio-box>div:nth-of-type(3) .box-line::after{
+    content:"3점";
+}
+.ratio-box>div:nth-of-type(4) .box-line::after{
+    content:"2점";
+}
+.ratio-box>div:last-of-type .box-line::after{
+    content:"1점";
+}
+.box-line-color{
+    position:absolute;
+    width:10px;
+    border-radius: 5px;
+    background-color:#ffb500;
+    bottom:0;
+}
+.box-line-color span{
+    position: absolute;
+    bottom:-30px;
+    font-size:16px;
+    font-weight:600;
+    display:block;
+    width: 50px;
+    text-align: center;
+    left: -150%;
+}
+.review-photo{
+    height:100%;
+    width:100%;
+}
+.img{
+    width:150px;
+    height:150px;
+    overflow:hidden; /*넘치는것은 가림*/
+}
+.img img{
+    object-fit: cover; /*width,height 크기준 범위에 사진이 범위를 벗어나지 않고 다 들어가게함*/
+    width:150px;
+    height:150px;
 }

@@ -177,7 +177,29 @@ $(function(){
         $(this).addClass('active');
     });
 
+    //리뷰막대기
+    viewReview();
+
+    //리뷰 슬릭
+        $('#review').show(function(){
+            $('.review-photo').slick({
+                slidesToShow: 8,
+                slidesToScroll: 1,
+                //centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+                //focusOnSelect:true,
+            });
+        });
+
 }); //jquery
+
+//리뷰 퍼센트 보기 함수
+function viewReview(){
+    $('.box-line-color').each(function(){ //for문과 비슷 (.box-line-color을 가지고 안에 내용 루프를 돌린다.)
+        let h = $(this).css('height');
+        $(this).html("<span>" + h + "</span>");
+       
+    });
+}
 
 function totalMoney(delivery){ //jquery 밖에 있는 함수이기 때문에 매개변수로 delivery를 받아야한다.
     let tm = 0; 
