@@ -185,12 +185,46 @@ $(function(){
             $('.review-photo').slick({
                 slidesToShow: 8,
                 slidesToScroll: 1,
-                //centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+                centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
                 //focusOnSelect:true,
             });
         });
 
+       //리뷰 팝업창
+       $('.imgs').click(function(e){
+            e.preventDefault(); // a태그의 기능을 중지(링크기능 없애기)
+            const src = $(this).find('img').attr("src"); //imgs 안에 있는 img의 src의 속성값을 가져온다.(주소 가져오기) getter
+            $('.imgbox').find('img').attr('src', src).attr('alt', src); //setter
+            $('.rp').fadeIn();
+            
+        });
+        
+        //타겟의 정보를 받아 그 외의 영역에 있으면 이벤트를 발생시키는 2가지 방법
+        //1번째 방법
+        
+        $(document).mouseup(function(e){
+            //console.log(e.target);   //마우스 누른곳의(target)의 정보
+            if($('.rp').has(e.target).length === 0){ //e.target의 요소를 가지는 rp클래스의 길이가 0이면(즉, 클릭할 때 생긴 요소가 없으면 클릭할 때 생긴요소는 1이 생긴다)
+                $('.rp').fadeOut();
+            }
+        });
+        
+       //2번째 방법
+       /* 
+       $('html').click(function(e){
+        if($(e.target).hasClass('rp')){
+            $('.rp').fadeOut();
+        }
+       });
+       */
+
+        $('.rp-close').click(function(e){
+            $('.rp').fadeOut();
+        });
+
 }); //jquery
+
+
 
 //리뷰 퍼센트 보기 함수
 function viewReview(){
