@@ -111,14 +111,9 @@ $(function(){
         $('.total-text').eq(totalTextLength).html(optionText); //eq == 순서를 나타냄(totalTextLength로) 0,1,2,3,...
         $('.quantity').eq(totalTextLength).val(1); //초기값을 1로 설정
         $('.tomoney').eq(totalTextLength).html(tmoney.toLocaleString()+"원");
-<<<<<<< HEAD
         txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantitArray+"개)";
         $('.totalmoney').html(txt); 
         console.log(txt);
-=======
-        $('#submit, #cart').attr('disabled', false);
-        totalMoney(delivery);
->>>>>>> main
        }
 
         // textArray = $('.total-text').html(optionText); 
