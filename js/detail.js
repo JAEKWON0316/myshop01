@@ -171,24 +171,48 @@ $(function(){
     }
     });
 
+    const opt = {
+            infinite: true,
+            autoplay: true,
+            slidesToShow: 8,
+            slidesToScroll: 1,
+            centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+            //focusOnSelect:true,
+    };
+
     //본문 상세보기 스크립트!!!
     $('.nav-pills li').click(function(){
         $('.nav-pills>li').removeClass('active');
         $(this).addClass('active');
+        const link = $(this).find('a').attr('href'); //link라는 변수에 a태그를 찾아 a태그의 href정보(#으로되어있는)를 link에 담는다.
+        if(link == "#review"){
+            //setTimeout(initializeSlick(), 1000); //setTimeout함수는 매개변수에 있는 함수를 딜레이시켜서 실행한다 setTimeout(함수, 딜레이시간);
+            setTimeout(function(){
+                $('.review-photo').not('.slick-initialized').slick(opt); //slick-initialized는 슬릭생성시 자동으로 생성되는것(리뷰포토에 슬릭초기화가 없으면 슬릭을 실행하라.)
+            }, 200);
+        } 
+        else{
+            $('.reivew-photo').slick('unslick')
+        }
     });
 
     //리뷰막대기
-    viewReview();
+  
 
-    //리뷰 슬릭
-        $('#review').show(function(){
-            $('.review-photo').slick({
-                slidesToShow: 8,
-                slidesToScroll: 1,
-                centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
-                //focusOnSelect:true,
-            });
-        });
+    // //슬릭 생성
+    //     function initializeSlick(){
+    //         $('.review-photo').slick({
+    //             slidesToShow: 8,
+    //             slidesToScroll: 1,
+    //             centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+    //             //focusOnSelect:true,
+    //         });
+    //     };
+
+    // //슬릭삭제
+    //     function destroySlick(){
+    //         $('.review-photo').slick('unslick');
+    //     } 
 
        //리뷰 팝업창
        $('.imgs').click(function(e){
@@ -248,7 +272,7 @@ function totalMoney(delivery){ //jquery 밖에 있는 함수이기 때문에 매
         if(tm >= 200000){
             delivery = 0;
         }
-        let txt = "총 상품금액(수량) : <strong>" + tm.toLocaleString() + "원</strong>+(배송비 :" + delivery.toLocaleString() + "원)" + " 상품수량(" + qts + "개)" ;
+        let txt = "총 상품금액(수량) : <strong>" + tm.toLocaleString() + "원</strong>+(배송비 : " + delivery.toLocaleString() + "원)" + " 상품수량(" + qts + "개)" ;
         $('.totalmoney').html(txt); 
     });
 }
