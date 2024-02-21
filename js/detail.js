@@ -47,11 +47,7 @@ $(function(){
                                    </div>
                                   <input type="number" 
                                         class="quantity"
-<<<<<<< HEAD
-                                        name="quantity[]"   
-=======
                                         name="quantity[]" 
->>>>>>> main
                                         value="1"
                                         readonly>
                                   <div class="input-group-append">
@@ -60,16 +56,10 @@ $(function(){
                                     </button>
                                   </div> 
                              </div>
-<<<<<<< HEAD
-                         </li>
-                    </ul>
-                    <input type="hidden" name="subtitle[]" class"subtitle">
-=======
                              
                          </li>
                     </ul>
                     <input type="hidden" name="subtitle[]" class="subtitle">
->>>>>>> main
                     <input type="hidden" name="toptmoney[]" class="toptmoney">
                     <div class="tomoney col text-right"></div>
                     <i class="fa-solid fa-close remove-order"></i>
