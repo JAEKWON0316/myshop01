@@ -1090,8 +1090,8 @@ ul.pddetail .pdtitle{
 .btn-box{
     justify-content: flex-end;
 }
-.table tr th:nth-child(2),
-.table tr td:nth-child(2){
+.qna-tb tr th:nth-child(2),
+.qna-tb tr td:nth-child(2){
     text-align: left;
 } 
 #qna h3,
@@ -1105,5 +1105,128 @@ ul.pddetail .pdtitle{
 .pagination{
     margin-left:550px;
 }
+
+
+/************* cart *****************/
+.cart-content h2{
+    text-align: center;
+
+}
+.cart-content P{
+    font-weight: 600;
+    font-size: 14px;
+    margin-top:20px;
+}
+.cart-guide{
+    margin-left:-25px;
+}
+.cart-guide li{
+    list-style-type: none;
+    position:relative;
+    font-size:14px;
+}
+.cart-guide li:before{
+    position:absolute;
+    top:0;
+    left:-15px;
+    font-weight: bold;
+    color:#555;
+    font-size:14px;
+}
+.cart-guide .cart-item1:before{
+    content:"1";
+}
+.cart-guide .cart-item2:before{
+    content:"2";
+}
+.cart-guide .cart-item3:before{
+    content:"3";
+}
+.cart-guide .cart-item4:before{
+    content:"4";
+}
+.cart-guide .cart-item5:before{
+    content:"5";
+}
+.cart-guide .cart-item6:before{
+    content:"6";
+}
+.product{
+    padding:0; /*padding0을 줘서 div박스와 시작점을 맞춰준다. */
+
+    
+}
+.product li{
+    list-style-type: none;
+    padding:20px 40px;
+    font-size:15px;
+    color:var(--gray-dark-color);
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+.product{
+    position: relative;
+}
+.right-safe{
+    position: absolute;
+    top:0;
+    right:0;
+    color:var(--gray-dark-color)
+}
+.pd-tb th{
+    font-weight:400;
+    font-size:14px;
+}
+.r-tb th{
+    font-weight:400;
+    font-size:14px;
+}
+input[type="checkbox"]{
+    border-radius: 50%;
+    cursor:pointer;
+}
+.p-select{
+    font-size:14px;
+}
+.orderbtn-box{
+    justify-content: center;
+}
+.btn-cart{
+    border-radius: 2px;
+    padding: 10px 10px;
+}
+.btn-whole,
+.btn-select{
+    padding:15px 35px;
+    border:1px solid #333;
+    margin:5px;
+    border-radius: 3px;
+}
+.box-check{
+    height:300px;
+   
+}
+.box-check p{
+    text-align:center;
+    margin-top:5px;
+    font-size:18px;
+    font-weight:400;
+}
+.hot-photo .img{
+    width:150px;
+    height:200px;
+    overflow:hidden; /*넘치는것은 가림*/
+    
+}
+.hot-photo .img img{
+    object-fit: cover; /*width,height 크기준 범위에 사진이 범위를 벗어나지 않고 다 들어가게함*/
+    width:150px;
+    height:200px;
+    border-radius: 5px;
+    
+}
+
+
+
 
 

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lanag="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myShop</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images//favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    
+        <link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+        <meta name="description" content="java를 이용한 쇼핑몰 연습">
+        <meta name="keywords" content="html, css, javascript, bootstrap, java">
+        <meta name="author" content="jaekwon Lee">
+        <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css" integrity="sha512-dUOcWaHA4sUKJgO7lxAQ0ugZiWjiDraYNeNJeRKGOIpEq4vroj1DpKcS3jP0K4Js4v6bXk31AAxAxaYt3Oi9xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/slick-theme.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/root.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!----- javascript ----->
+        <script src="js/jquery.min.js"></script> <!--이거는 순서변경이 안된다 무조건 먼저 써줘야함!!!!!-->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <Script src="js/slick.min.js"></Script>
+        <script src="js/script.js"></script>
+        <script src="js/db.js"></script>
+        <script src="js/detail.js"></script>
+        <script src="js/cart.js"></script>
+</head>
+<body id="body">
+    <!-- HEADER -->    
+    <header>
+       <div class="container-max">
+          <div class="row">
+            <nav class="top d-md-flex d-none justify-content-between">
+                <ul class="nav">
+                    <li><a href="#">login</a></li>
+                    <li><a href="#">join us</a>
+                       <div class="msgbox">
+                           +10,000 
+                       </div>
+                    </li>
+                    <li><a href="#">cart <span>0</span></a></li>
+                    <li><a href="#">order</a></li>
+                    <li class="mem"><a href="#">my page</a>
+                        <ul class="subnav">
+                            <li><a href="#">관심상품</a></li>
+                            <li><a href="#">주문조회</a></li>
+                            <li><a href="#">적립금</a></li>
+                            <li><a href="#">예치금</a></li>
+                            <li><a href="#">마이쿠폰</a></li>
+                            <li><a href="#">내가쓴글</a></li>
+                        </ul>
+                    </li>
+                    <li class="mem"><a href="#">community</a>
+                        <ul class="subnav">
+                            <li><a href="#">notice</a></li>
+                            <li><a href="#">q&a</a></li>
+                            <li><a href="#">review</a></li>
+                            <li><a href="#">event</a></li>
+                            <li><a href="#">자주묻는질문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+    
+                <ul class="right-nav nav">
+                    <li><a href="#" class="facebook"><i class="ri-facebook-fill"></i></a></li>
+                    <li><a href="#" class="instagram"><i class="ri-instagram-line"></i></a></li>
+                    <li><a href="#" class="kakao"><i class="ri-kakao-talk-fill"></i></a></li>
+                    <li><a href="#" class="youtube"><i class="ri-youtube-fill"></i></a></li>
+                    <li>
+                        <form name="searchform" class="searchform" id="searchform">
+                            <input type="search" name="search" class="search" placeholder="🤦‍♀️🤦‍♂️고퀄리티 쇼핑몰!👍👍">
+                            <button type="button" class="btn btn-link btn-search"><i class="ri-search-line"></i></button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <h1 class="brand">MY SHOPPING MALL</h1>
+            
+          </div>
+       </div><!--/container-max-->
+       <nav class="global">
+          <div class="container-max">
+             <div class="row justify-content-between category-parent">
+                <div class="category">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                    <div class="category-subnav">
+                        <ul class="category-subnav-view">
+                                
+                        </ul>
+                        <ul class="global-nav-view">
+                            <li><a href="#">BEST리뷰</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Q&A</a></li>
+                            <li><a href="#">배송조회</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="nav pr-category justify-content-between">
+                    <li><a href="#">new</a></li>
+                    <li><a href="#">빅사이즈</a></li>
+                    <li><a href="#">원피스</a></li>
+                    <li><a href="#">아우터</a></li>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">바지</a></li>
+                    <li><a href="#">new</a></li>
+                </ul>
+                <ul class="nav global-nav justify-content-between">
+                    <li><a href="#">BEST리뷰</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Q&A</a></li>
+                    <li><a href="#">배송조회</a></li>
+                </ul>
+             </div>
+          </div>
+       </nav>
+    </header>
+
+    <!-- cart -->
+    <div class="container cart-content">
+        <h2 class="pb-5 pt-5 mt-5">장바구니</h2>
+        <div class="product-box mb-5">
+            <ul class="product d-flex border-bottom">
+                <p class="right-safe">장바구니에 담긴 상품은 3일 동안 보관됩니다.</p> 
+                <li class="border-top border-right border-left"><a>국내배송상품()</a></li>
+                <li class="border-top border-right"><a>해외배송상품()</a></li>
+            </ul>
+        </div>
+
+        <table class="pd-tb table text-center">
+            <thead class="bg-light">
+              <tr>
+                <th>
+                    <input type="checkbox" />
+                </th>
+                <th>이미지</th>
+                <th>상품정보</th>
+                <th>수량</th>
+                <th>상품구매금액</th>
+                <th>할인금액</th>
+                <th>배송구분</th>
+                <th>배송비</th>
+                <th>선택</th>
+              </tr>
+            </thead>
+            <tbody class="border-bottom">
+              <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              
+            </tbody>
+          </table>
+          <p class="basic-delievery border-bottom pb-3">[기본배송]</p>
+
+        <div class="d-flex justify-content-between pt-4">
+            <div>
+            <span class="p-select">선택상품을</span>
+            <button type="button" class="btn btn-outline-light text-dark border-dark btn-cart">삭제하기</button>
+            <button type="button" class="btn btn-outline-light text-dark border-dark btn-cart">해외배송상품 장바구니로 이동</button>
+            </div>
+            <div>
+            <button type="button" class="btn btn-outline-light text-dark border-dark btn-cart">장바구니비우기</button>
+            <button type="button" class="btn btn-outline-light text-dark border-dark btn-cart">견적서출력</button>
+            </div>
+        </div>
+          <table class="r-tb table text-center mt-5">
+            <thead class="bg-light">
+              <tr>
+                <th>총 상품금액</th>
+                <th>총 배송비</th>
+                <th>총 할인금액</th>
+                <th>결제예정금액</th>
+              </tr>
+            </thead>
+            <tbody class="border-bottom">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+     
+          <div class="orderbtn-box d-flex mb-5">
+            <button type="button" class="btn btn-dark btn-dark text-white btn-whole">전체상품주문</button>
+            <button type="button" class="btn btn-light text-dark btn-select">선택상품주문</button>
+           </div>
+           
+        <div class="box-check border">
+            <p>다른 인기 상품도 확인해보세요!</p>
+            <div class="hot-photo">
+                <div class="img">
+                    <a href="#"><img src="images/pd/015.jpg" alt="015" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/016.jpg" alt="016" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/017.jpg" alt="017" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/018.jpg" alt="018" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/019.jpg" alt="019" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/020.jpg" alt="020" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/021.jpg" alt="021" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/022.jpg" alt="022" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/023.jpg" alt="023" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/024.jpg" alt="024" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/025.jpg" alt="025" /></a>
+                </div>
+                <div class="img">
+                    <a href="#"><img src="images/pd/026.jpg" alt="026" /></a>
+                </div>
+            </div>
+
+        </div>
+    <div class="mb-5 pb-5">
+    <h4 class="cart-title border-bottom pb-4 mt-5">이용안내</h4>
+    <p>장바구니 이용안내</p>
+    <ol class="cart-guide">
+        <li class="cart-item1">선택하신 상품의 수량을 변경하시려면 수량변경 후 [변경] 버튼을 누르시면 됩니다.</li>
+        <li class="cart-item2">[쇼핑계속하기] 버튼을 누르시면 쇼핑을 계속 하실 수 있습니다.</li>
+        <li class="cart-item3">장바구니와 관심상품을 이용하여 원하시는 상품만 주문하거나 관심상품으로 등록하실 수 있습니다.</li>
+        <li class="cart-item4">파일첨부 옵션은 동일상품을 장바구니에 추가할 경우 마지막에 업로드 한 파일로 교체됩니다.</li>
+        <li class="cart-item5">해외배송 상품과 국내배송 상품은 함께 결제하실 수 없으니 장바구니 별로 따로 결제해 주시기 바랍니다.</li>
+        <li class="cart-item6">해외배송 가능 상품의 경우 국내배송 장바구니에 담았다가 해외배송 장바구니로 이동하여 결제하실 수 있습니다.</li>
+    </ol>
+    <p>무이자할부 이용안내</p>
+    <ol class="cart-guide">
+        <li class="cart-item1">상품별 무이자할부 혜택을 받으시려면 무이자할부 상품만 선택하여 [주문하기] 버튼을 눌러 주문/결제 하시면 됩니다.</li>
+        <li class="cart-item2">[전체 상품 주문] 버튼을 누르시면 장바구니의 구분없이 선택된 모든 상품에 대한 주문/결제가 이루어집니다.</li>
+        <li class="cart-item3">단, 전체 상품을 주문/결제하실 경우, 상품별 무이자할부 혜택을 받으실 수 없습니다.</li>
+        <li class="cart-item4">무이자할부 상품은 장바구니에서 별도 무이자할부 상품 영역에 표시되어, 무이자할부 상품 기준으로 배송비가 표시됩니다.
+                               <br>
+                               실제 배송비는 함께 주문하는 상품에 따라 적용되오니 주문서 하단의 배송비 정보를 참고해주시기 바랍니다.
+        </li>
+    </ol>
+  </div>
+</div> 
+<!-- /cart -->
+
+
+
+    <section id="service" class="service">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+                <h4>CUSTOMER CENTER<span class="tel">031-0000-0000</span></h4>
+                <p>평일 오전 10:00 ~ 오후 5:00 / 점심시간 오후 12:00 ~ 오후 1:00 / 토, 일, 공휴일 휴무</p>
+                <h4>KAKAOTALK<a class="kakao"><i class="ri-kakao-talk-fill"></i></a></h4>
+                <p>평일 오전 11:00 ~ 오후 4:00 / 점심시간 오후 12:00 ~ 오후 1:00 / 토, 일, 공휴일 휴무</p>
+                <h4>ACCOUNT INFO</h4>
+                <div class="bank-box">
+                <span class="bank">우리 0000-101-335115</span>
+                <span class="bank">농협 0000-01-057383</span>
+                <span class="bank">국민 000000-04-138751</span>
+                <span class="bank">신한 000-024-368599</span>
+                <span class="bank">기업 000-053616-01-012</span>
+                <span class="bank">주식회사 '길동네트워크'</span>
+                </div>
+                <h4>RETURN / EXCHANGE</h4>
+                <p>CJ대한통운 : 경기도 김포시 000000, 1층 CJ대한통운 '길동네트워크'</p>
+                <p>한진택배 : 경기도 김포시 0000 00-00, 702호 한진택배 '길동네트워크</p>
+            </div>
+        <div class="col-md-6">
+            <div class="linebox">
+                    <h4>COMPANY</h4>
+                    <p>주식회사 엠제이앤엠
+                    대표 문인기</p>
+                    <h4>ADDRESS</h4>
+                    <p>10999 경기도 김포시 수기로00길 18 (00동0가) 000빌딩 5층</p>
+                    <p>BUSINESS LICENSE 000-86-00000
+                    [사업자정보확인]</p>
+                    <p>MAIL-ORDER-LICENSE 2024-김포시동-00000
+                    EMAIL diwo02@naver.com</p>
+                    <div class="df-escrow-inicis" onclick="window.open('https://www.inicis.com/','escrow','width=500,height=640,scrollbars=auto')">
+                        <!--kg이니시스에서 제공해준다!!-->
+                    <p>KG 에스크로<br> 가입사실 확인</p>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+    <!-- FOOTER -->
+            <footer>
+                <div class="container">
+                    <p class="text-center pt-3">Copyright &copy; jack's all right reserved. maked 2024.</p>
+                </div>
+            </footer>
+            <div class="remotecontrol">
+                <a href="#" class="tops"><i class="ri-arrow-up-s-line"></i></a>
+                <a href="#" class="bottoms"><i class="ri-arrow-down-s-line"></i></a>
+            </div> 
+    </body>
+</html>
