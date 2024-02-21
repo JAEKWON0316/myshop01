@@ -17,7 +17,7 @@ $(function(){
     const prtitle = $("#title").val();
     let totalmoney = prprice;
     let tmoney = prprice;
-    let txt, totalTextLength, opt1, opt11, colortxt, color, opt2, opt21, size, sizetxt, optionText; //외부에서도 선언해줘야지 다른 함수에서도 사용할 수 있으니까!!(함수내에 변수를 설정하면 그 함수내(스코프)안에서 밖에 못쓴다!!)
+    let totalTextLength, opt1, opt11, colortxt, color, opt2, opt21, size, sizetxt, optionText; //외부에서도 선언해줘야지 다른 함수에서도 사용할 수 있으니까!!(함수내에 변수를 설정하면 그 함수내(스코프)안에서 밖에 못쓴다!!)
    
     $('input[name="color"]').change(function(){
         //alert(this.value);
@@ -47,7 +47,11 @@ $(function(){
                                    </div>
                                   <input type="number" 
                                         class="quantity"
+<<<<<<< HEAD
                                         name="quantity[]"   
+=======
+                                        name="quantity[]" 
+>>>>>>> main
                                         value="1"
                                         readonly>
                                   <div class="input-group-append">
@@ -56,9 +60,16 @@ $(function(){
                                     </button>
                                   </div> 
                              </div>
+<<<<<<< HEAD
                          </li>
                     </ul>
                     <input type="hidden" name="subtitle[]" class"subtitle">
+=======
+                             
+                         </li>
+                    </ul>
+                    <input type="hidden" name="subtitle[]" class="subtitle">
+>>>>>>> main
                     <input type="hidden" name="toptmoney[]" class="toptmoney">
                     <div class="tomoney col text-right"></div>
                     <i class="fa-solid fa-close remove-order"></i>
@@ -100,10 +111,16 @@ $(function(){
         $('.total-text').eq(totalTextLength).html(optionText); //eq == 순서를 나타냄(totalTextLength로) 0,1,2,3,...
         $('.quantity').eq(totalTextLength).val(1); //초기값을 1로 설정
         $('.tomoney').eq(totalTextLength).html(tmoney.toLocaleString()+"원");
+<<<<<<< HEAD
         txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantitArray+"개)";
         $('.totalmoney').html(txt); 
         console.log(txt);
+=======
+        $('#submit, #cart').attr('disabled', false);
+        totalMoney(delivery);
+>>>>>>> main
        }
+
         // textArray = $('.total-text').html(optionText); 
         // console.log(textArray[i]);
         
@@ -133,8 +150,7 @@ $(function(){
         //let ind = $('.qup').index(this); //qup의 인덱스 순서값을 ind에 저장
         //$('.tomoney').eq(ind).html(tmoney + "원");
         $('.tomoney').eq(totalTextLength).html(ttmoney.toLocaleString()+"원");
-        txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantity+"개)";
-        $('.totalmoney').html(txt);        
+        totalMoney(delivery);      
         //$('.totalmoney>strong').text(totalmoney.toLocaleString()+"원");
     });
     //$("#qdown").click(function(){
@@ -154,24 +170,125 @@ $(function(){
         tmoney = ttmoney.toLocaleString();
         $(this).parents('.add-opt').find('.tomoney').html(ttmoney + "원");
         $('.tomoney').eq(totalTextLength).html(ttmoney.toLocaleString()+"원");
-        txt = "총 상품금액(수량) : <strong>"+tmoney+"원<strong>("+quantity+"개)";
-        $('.totalmoney').html(txt);  
+        totalMoney(delivery);
         //$('.totalmoney>strong').text(totalmoney.toLocaleString()+"원");
         
     });
     
     $(document).on('click', '.remove-order', function(){
         $(this).parents('.add-opt').remove(); //클릭한것의 부모들중 add-opt클래스를 찾아서 삭제해라.
+        if($('.addquantity').children().hasClass('add-opt')){
+        totalMoney(delivery);
+    }
+    else{
+        $(this).find("option:first").prop("selected", true); //prop: select 박스에 true,false를 주는 명령어
+        $('#submit, #cart').attr('disabled', true);
+        $(".totalmoney").html("");
+    }
     });
+
+    const opt = {
+            infinite: true,
+            autoplay: true,
+            slidesToShow: 8,
+            slidesToScroll: 1,
+            centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+            //focusOnSelect:true,
+    };
+
+    //본문 상세보기 스크립트!!!
+    $('.nav-pills li').click(function(){
+        $('.nav-pills>li').removeClass('active');
+        $(this).addClass('active');
+        const link = $(this).find('a').attr('href'); //link라는 변수에 a태그를 찾아 a태그의 href정보(#으로되어있는)를 link에 담는다.
+        if(link == "#review"){
+            //setTimeout(initializeSlick(), 1000); //setTimeout함수는 매개변수에 있는 함수를 딜레이시켜서 실행한다 setTimeout(함수, 딜레이시간);
+            setTimeout(function(){
+                $('.review-photo').not('.slick-initialized').slick(opt); //slick-initialized는 슬릭생성시 자동으로 생성되는것(리뷰포토에 슬릭초기화가 없으면 슬릭을 실행하라.)
+            }, 200);
+        } 
+        else{
+            $('.reivew-photo').slick('unslick')
+        }
+    });
+
+    //리뷰막대기
+  
+
+    // //슬릭 생성
+    //     function initializeSlick(){
+    //         $('.review-photo').slick({
+    //             slidesToShow: 8,
+    //             slidesToScroll: 1,
+    //             centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
+    //             //focusOnSelect:true,
+    //         });
+    //     };
+
+    // //슬릭삭제
+    //     function destroySlick(){
+    //         $('.review-photo').slick('unslick');
+    //     } 
+
+       //리뷰 팝업창
+       $('.imgs').click(function(e){
+            e.preventDefault(); // a태그의 기능을 중지(링크기능 없애기)
+            const src = $(this).find('img').attr("src"); //imgs 안에 있는 img의 src의 속성값을 가져온다.(주소 가져오기) getter
+            $('.imgbox').find('img').attr('src', src).attr('alt', src); //setter
+            $('.rp').fadeIn();
+            
+        });
+        
+        //타겟의 정보를 받아 그 외의 영역에 있으면 이벤트를 발생시키는 2가지 방법
+        //1번째 방법
+        
+        $(document).mouseup(function(e){
+            //console.log(e.target);   //마우스 누른곳의(target)의 정보
+            if($('.rp').has(e.target).length === 0){ //e.target의 요소를 가지는 rp클래스의 길이가 0이면(즉, 클릭할 때 생긴 요소가 없으면 클릭할 때 생긴요소는 1이 생긴다)
+                $('.rp').fadeOut();
+            }
+        });
+        
+       //2번째 방법
+       /* 
+       $('html').click(function(e){
+        if($(e.target).hasClass('rp')){
+            $('.rp').fadeOut();
+        }
+       });
+       */
+
+        $('.rp-close').click(function(e){
+            $('.rp').fadeOut();
+        });
 
 }); //jquery
 
-function totalMoney(){
-    let tm = 0;
-    $("input[name='toptmoney[]']").each(function(index){
-        let moneyVal = parseInt($(this).val());
-        let qt = parseInt($(".quantity").val());
+
+
+//리뷰 퍼센트 보기 함수
+function viewReview(){
+    $('.box-line-color').each(function(){ //for문과 비슷 (.box-line-color을 가지고 안에 내용 루프를 돌린다.)
+        let h = $(this).css('height');
+        $(this).html("<span>" + h + "</span>");
+       
+    });
+}
+
+function totalMoney(delivery){ //jquery 밖에 있는 함수이기 때문에 매개변수로 delivery를 받아야한다.
+    let tm = 0; 
+    let qts = 0;
+    $("input[name='toptmoney[]']").each(function(index){ //name에다 []를 해주면 배열로 들어간다!!
+        let moneyVal = parseInt($(this).val()); //가격 가져오기
+      
+        let qt = parseInt($(".quantity").eq(index).val()); //수랑 가져오기
         tm += moneyVal*qt;
-        console.log(tm);
+        qts += qt;
+        //배송정책
+        if(tm >= 200000){
+            delivery = 0;
+        }
+        let txt = "총 상품금액(수량) : <strong>" + tm.toLocaleString() + "원</strong>+(배송비 : " + delivery.toLocaleString() + "원)" + " 상품수량(" + qts + "개)" ;
+        $('.totalmoney').html(txt); 
     });
 }
