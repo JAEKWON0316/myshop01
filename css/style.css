@@ -1185,3 +1185,27 @@ ul.pddetail .pdtitle{
 .cartview-close:hover{
     color:var(--dark-color);
 }
+
+@media (max-width:768px){  /*media쿼리는 아래에 써줘야한다!!*/
+    .img-thumb-box{
+        display:flex;
+        justify-content: flex-start;
+        flex-wrap:wrap;
+    }
+    .img-thumb-box img{
+        margin: 0 13px 15px 0;
+    }
+    .cartview.mcartview{
+        display:none !important;
+    }
+    .btn-line.btn-left, .btn-line.btn-right{
+        width:100%;
+        display:inline-block;
+        border: 1px solid var(--gray-dark-color);
+        margin-top:15px;
+        padding:15px;
+        transition:all 0.3s;
+        margin-bottom: 0;
+        margin-left:0;
+    }
+}

@@ -34,7 +34,7 @@ $(function(){
         $('.size').attr('disabled', false); //size클래스의 disabled 속성을 change시 false하게 한다
     });
     let opthtml = `<ul class="add-opt">
-                     <li class="d-flex align-items-center">
+                     <li class="d-md-flex align-items-center">
                         <div class="total-text col"></div>
                          <ul class="add-opts col">
                               <li class="addbox d-flex align-items-center">
@@ -171,14 +171,30 @@ $(function(){
     }
     });
 
-    const opt = {
+    //카트로 이동
+    $('#cart').click(function(){
+        window.location.href="cart.html";
+    });
+
+
+        const opt = {
             infinite: true,
-            autoplay: true,
             slidesToShow: 8,
             slidesToScroll: 1,
-            centerMode: true,  //이두개는 센터모드로해서 양옆을 잘라서 뭐가 나올지 보이게 해주는것.
-            //focusOnSelect:true,
-    };
+            centerMode: true,
+            autoplay: true,
+            responsive: [{
+            breakpoint: 768,
+            settings: {
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                centerMode: false,
+                autoplay: true,         
+            }
+            }]
+        };
+   
 
     //본문 상세보기 스크립트!!!
     $('.nav-pills li').click(function(){
